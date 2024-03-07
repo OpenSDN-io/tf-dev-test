@@ -1,6 +1,6 @@
 # tf-dev-test
 
-tf-dev-test is a tool for testing of Tungsten Fabric deployments by means of various test suites and methods.
+tf-dev-test is a tool for testing of OpenSDN deployments by means of various test suites and methods.
 
 Supported test suites are:
 - [smoke](https://github.com/opensdn-io/tf-dev-test/tree/master/smoke-test)

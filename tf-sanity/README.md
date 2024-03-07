@@ -12,7 +12,7 @@ AGENT_NODES - it’s a list of comma separated IP-s of agent nodes (compute, kub
 
 SSH_USER - user to access remote nodes (current user by default)
 
-CONTAINER_REGISTRY - registry of images in cluster (tungstenfabric, or your private registry)
+CONTAINER_REGISTRY - registry of images in cluster (opensdn, or your private registry)
 
 CONTRAIL_CONTAINER_TAG - tag of images in cluster (latest, master-latest, ...)
 

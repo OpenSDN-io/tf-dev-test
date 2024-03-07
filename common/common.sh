@@ -26,7 +26,7 @@ PHYS_INT=`ip route get 1 | grep -o 'dev.*' | awk '{print($2)}'`
 NODE_IP=`ip addr show dev $PHYS_INT | grep 'inet ' | awk '{print $2}' | head -n 1 | cut -d '/' -f 1`
 
 # defaults for containers
-export CONTAINER_REGISTRY=${CONTAINER_REGISTRY:-'tungstenfabric'}
+export CONTAINER_REGISTRY=${CONTAINER_REGISTRY:-'opensdn'}
 export CONTRAIL_CONTAINER_TAG=${CONTRAIL_CONTAINER_TAG:-'latest'}
 
 # defaults stack
