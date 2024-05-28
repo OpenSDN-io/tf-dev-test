@@ -74,6 +74,10 @@ function install_prerequisites_rhel() {
     install_prerequisites_centos
 }
 
+function install_prerequisites_rocky() {
+    install_prerequisites_centos
+}
+
 function install_prerequisites_ubuntu() {
     local pkgs="python3-minimal python3-distutils"
     export DEBIAN_FRONTEND=noninteractive
