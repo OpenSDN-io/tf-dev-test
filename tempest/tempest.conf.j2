@@ -1,0 +1,31 @@
+[DEFAULT]
+debug = true
+log_file = tempest.log
+use_stderr = false
+
+[auth]
+admin_username =  {{ OS_USERNAME }}
+admin_password = {{ AUTH_PASSWORD }}
+admin_project_name = {{ OS_PROJECT_NAME }}
+tempest_roles=admin
+
+[service_available]
+neutron = True
+
+[identity]
+uri_v3 = {{ OS_AUTH_URL }}
+v3_endpoint_type = internal
+auth_version = v3
+
+[network]
+public_network_id = {{ PUBLIC_NETWORK_ID }}
+floating_network_name = tf-tempest-test
+project_networks_reachable = False
+
+[network-feature-enabled]
+ipv6 = False
+ipv6_subnet_attributes = True
+port_security = True
+
+[oslo_concurrency]
+lock_path = tempest_lock
