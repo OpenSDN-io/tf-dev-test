@@ -14,7 +14,7 @@ echo "[$TF_TEST_NAME]"
 
 if [[ "$DEPLOYER" != 'rhosp' ]] ; then
   printf '%*s\n' 120 | tr ' ' '='
-  sudo contrail-status
+  sudo opensdn-status
   printf '%*s\n' 120 | tr ' ' '='
   if which docker >/dev/null 2>&1 ; then
     sudo docker ps -a

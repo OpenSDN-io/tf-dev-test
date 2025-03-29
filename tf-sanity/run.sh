@@ -25,7 +25,7 @@ if [[ "$RHEL_VERSION" =~ "rhel8" ]] ; then
 fi
 #
 if [ -z "$TF_TEST_IMAGE" ] ; then
-    TF_TEST_IMAGE="contrail-test-test:${CONTRAIL_CONTAINER_TAG}"
+    TF_TEST_IMAGE="opensdn-test-test:${CONTRAIL_CONTAINER_TAG}"
     [ -n "$CONTAINER_REGISTRY" ] && TF_TEST_IMAGE="${CONTAINER_REGISTRY}/${TF_TEST_IMAGE}"
 else
     echo "INFO: TF_TEST_IMAGE=$TF_TEST_IMAGE"
