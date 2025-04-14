@@ -27,6 +27,11 @@ fi
 if [ -z "$TF_TEST_IMAGE" ] ; then
     TF_TEST_IMAGE="opensdn-test-test:${CONTRAIL_CONTAINER_TAG}"
     [ -n "$CONTAINER_REGISTRY" ] && TF_TEST_IMAGE="${CONTAINER_REGISTRY}/${TF_TEST_IMAGE}"
+    if ! sudo docker pull $TF_TEST_IMAGE ; then
+        TF_TEST_IMAGE="contrail-test-test:${CONTRAIL_CONTAINER_TAG}"
+        [ -n "$CONTAINER_REGISTRY" ] && TF_TEST_IMAGE="${CONTAINER_REGISTRY}/${TF_TEST_IMAGE}"
+        sudo docker pull $TF_TEST_IMAGE
+    fi
 else
     echo "INFO: TF_TEST_IMAGE=$TF_TEST_IMAGE"
     # let's suppose that $TF_TEST_IMAGE contains registry before first '/'
