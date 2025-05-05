@@ -9,7 +9,7 @@ export TF_TEST_NAME=${TF_TEST_NAME:-"smoke-test"}
 
 # working environment
 WORKSPACE=${WORKSPACE:-$(pwd)}
-TF_CONFIG_DIR=${TF_CONFIG_DIR:-"${HOME}/.tf"}
+TF_CONFIG_DIR=${TF_CONFIG_DIR:-${HOME}/.tf}
 TF_STACK_PROFILE="${TF_CONFIG_DIR}/stack.env"
 
 # import tf profile that created by devstack into current context
@@ -22,6 +22,7 @@ set +o allexport
 
 # determined variables
 export DISTRO=$(cat /etc/*release | egrep '^ID=' | awk -F= '{print $2}' | tr -d \")
+export VERSION_ID=$(cat /etc/*release | egrep '^VERSION_ID=' | awk -F= '{print $2}' | tr -d \")
 PHYS_INT=`ip route get 1 | grep -o 'dev.*' | awk '{print($2)}'`
 NODE_IP=`ip addr show dev $PHYS_INT | grep 'inet ' | awk '{print $2}' | head -n 1 | cut -d '/' -f 1`
 

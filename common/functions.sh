@@ -79,7 +79,7 @@ function install_prerequisites_rocky() {
 }
 
 function install_prerequisites_ubuntu() {
-    local pkgs="python3-minimal python3-distutils"
+    local pkgs="python3-minimal"
     export DEBIAN_FRONTEND=noninteractive
     retry sudo -E apt-get install -y $pkgs
 }

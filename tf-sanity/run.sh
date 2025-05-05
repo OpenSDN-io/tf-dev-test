@@ -61,8 +61,14 @@ TF_TEST_INPUT_TEMPLATE=${TF_TEST_INPUT_TEMPLATE:-"$my_dir/tf_test_input.yaml.j2"
 
 cd $WORKSPACE
 
-python3 -m pip --version || curl -s https://bootstrap.pypa.io/pip/3.6/get-pip.py | sudo python3
-sudo python3 -m pip install jinja2
+set -x
+if [[ "$DISTRO" == 'ubuntu' && "$VERSION_ID" > 24 ]]; then
+    sudo apt-get install python3-jinja2
+else
+    python3 -m pip --version || curl -s https://bootstrap.pypa.io/pip/3.6/get-pip.py | sudo python3
+    sudo python3 -m pip install jinja2
+fi
+set +x
 
 if echo ",${CONTROLLER_NODES},${AGENT_NODES}," | tr ' ' ','  | grep -q ",${NODE_IP}," ; then
     # prepare ssh keys for local connect
